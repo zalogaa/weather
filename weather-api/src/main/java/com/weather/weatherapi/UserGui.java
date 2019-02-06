@@ -13,9 +13,11 @@ public class UserGui extends VerticalLayout {
 
 	public UserGui() {
 		this.tfCity = new TextField("city");
-		buttonSend = new Button("send");
+		this.buttonSend = new Button("send");
+		buttonSend.addClickListener(clickEvent -> System.out.println("ok"));
 		add(tfCity);
 		add(buttonSend);
+		
 	}
 
 }
