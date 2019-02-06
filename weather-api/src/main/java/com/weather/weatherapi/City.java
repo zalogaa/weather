@@ -11,19 +11,19 @@ public class City {
 	@GeneratedValue
 	private Long id;
 	
-	private String cityName;
+	private String name;
 
 	public City(String cityName) {
 
-		this.cityName = cityName;
+		this.name = cityName;
 	}
 
 	public String getCityName() {
-		return cityName;
+		return name;
 	}
 
 	public void setCityName(String cityName) {
-		this.cityName = cityName;
+		this.name = cityName;
 	}
 
 }
