@@ -1,6 +1,9 @@
 package com.weather.weatherapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import com.vaadin.flow.component.button.Button;
@@ -38,7 +41,10 @@ public class UserGui extends VerticalLayout {
 	}
 
 	public void showCitiesWithTemperaturies() {
-		taCities.setValue("works");
+		ResponseEntity<String> cityResponse = restTemplate.exchange("https://samples.openweathermap.org/data/2.5/weather?q="+"Londyn", 
+				HttpMethod.GET, null, new ParameterizedTypeReference<String>() {});
+		
+		taCities.setValue(cityResponse.getBody());
 	}
 
 }
