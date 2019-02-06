@@ -30,6 +30,7 @@ public class UserGui extends VerticalLayout {
 		});
 		add(tfCity);
 		add(buttonSend);
+		add(taCities);
 	}
 
 	public void addCity(String city) {
