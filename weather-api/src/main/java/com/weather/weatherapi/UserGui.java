@@ -41,6 +41,8 @@ public class UserGui extends VerticalLayout {
 	}
 
 	public void showCitiesWithTemperaturies() {
+		
+		
 		ResponseEntity<String> cityResponse = restTemplate.exchange("https://samples.openweathermap.org/data/2.5/weather?q="+"Londyn", 
 				HttpMethod.GET, null, new ParameterizedTypeReference<String>() {});
 		
