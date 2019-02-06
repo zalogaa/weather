@@ -17,7 +17,7 @@ public class UserGui extends VerticalLayout {
 		buttonSend.addClickListener(clickEvent -> System.out.println("ok"));
 		add(tfCity);
 		add(buttonSend);
-		
+
 	}
 
 }
