@@ -1,5 +1,7 @@
 package com.weather.weatherapi;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,7 @@ public class CityService {
 		cityRepository.save(city);
 	}
 	
-	public City getCity(String name) {
-		return cityRepository.findByName(name);
+	public List<City> getCity(String name) {
+		return (List<City>) cityRepository.findByName(name);
 	}
 }
