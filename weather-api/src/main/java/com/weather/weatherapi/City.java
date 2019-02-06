@@ -10,8 +10,11 @@ public class City {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	private String name;
+
+	public City() {
+	}
 
 	public City(String cityName) {
 

@@ -1,5 +1,7 @@
 package com.weather.weatherapi;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -41,13 +43,20 @@ public class UserGui extends VerticalLayout {
 	}
 
 	public void showCitiesWithTemperaturies() {
+		List<City> cities = cityService.getAllCities();
 
-		ResponseEntity<String> cityResponse = restTemplate.exchange(
-				"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=bd1a5f6d8fed8c14c5caace65591ef23",
-				HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
-				});
+		StringBuffer sb = new StringBuffer();
 
-		taCities.setValue(cityResponse.getBody());
+		cities.forEach(x -> {
+			ResponseEntity<String> cityResponse = restTemplate.exchange(
+					"https://samples.openweathermap.org/data/2.5/weather?q=" + x.getCityName()
+							+ ",uk&appid=bd1a5f6d8fed8c14c5caace65591ef23",
+					HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
+					});
+			sb.append(cityResponse.getBody() + "\n");
+		});
+
+		taCities.setValue(sb.toString());
 	}
 
 }
