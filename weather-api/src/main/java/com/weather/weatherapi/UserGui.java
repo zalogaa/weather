@@ -43,7 +43,8 @@ public class UserGui extends VerticalLayout {
 	public void showCitiesWithTemperaturies() {
 		
 		
-		ResponseEntity<String> cityResponse = restTemplate.exchange("https://samples.openweathermap.org/data/2.5/weather?q="+"Londyn", 
+		ResponseEntity<String> cityResponse = restTemplate.exchange("https://samples.openweathermap.org/data/2.5/weather?q="+"London,uk&appid=bd1a5f6d8fed8c14c5caace65591ef23\r\n" + 
+				" ", 
 				HttpMethod.GET, null, new ParameterizedTypeReference<String>() {});
 		
 		taCities.setValue(cityResponse.getBody());
