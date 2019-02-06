@@ -1,14 +1,14 @@
 package com.weather.weatherapi;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "Cities")
 public class City {
 
-	@Column(name = "cityName", nullable = false)
+	@Id
+	private Long id;
+	
 	private String cityName;
 
 	public City(String cityName) {
@@ -25,4 +25,3 @@ public class City {
 	}
 
 }
-s
