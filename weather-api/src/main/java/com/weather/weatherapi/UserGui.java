@@ -1,16 +1,21 @@
 package com.weather.weatherapi;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 @Route
-public class UserGui extends VerticalLayout{
+public class UserGui extends VerticalLayout {
 
-//	@GetMapping("/GetCity/{cityName}")
-//	public String getCity(@PathVariable String cityName) {
-//
-//		return null;
-//
-//	}
+	private TextField tfCity;
+	private Button buttonSend;
+
+	public UserGui() {
+		this.tfCity = new TextField("city");
+		buttonSend = new Button("send");
+		add(tfCity);
+		add(buttonSend);
+	}
 
 }
