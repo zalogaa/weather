@@ -1,6 +1,7 @@
 package com.weather.weatherapi;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -39,7 +40,11 @@ public class UserGui extends VerticalLayout {
 	}
 
 	public void addCity(String city) {
-		cityService.addCity(new City(city));
+		
+		String [] cities = city.split(",");
+		for (String string : cities) {
+			cityService.addCity(new City(string.trim()));
+		}
 	}
 
 	public void showCitiesWithTemperatures() {
