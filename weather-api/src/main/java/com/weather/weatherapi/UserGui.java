@@ -28,10 +28,10 @@ public class UserGui extends VerticalLayout {
 	public UserGui() {
 		this.tfCity = new TextField("city");
 		this.buttonSend = new Button("send");
-		taCities = new TextArea("cities with temperaturies");
+		taCities = new TextArea("cities with temperatures");
 		buttonSend.addClickListener(clickEvent -> {
 			addCity(tfCity.getValue());
-			showCitiesWithTemperaturies();
+			showCitiesWithTemperatures();
 		});
 		add(tfCity);
 		add(buttonSend);
@@ -42,7 +42,7 @@ public class UserGui extends VerticalLayout {
 		cityService.addCity(new City(city));
 	}
 
-	public void showCitiesWithTemperaturies() {
+	public void showCitiesWithTemperatures() {
 		List<City> cities = cityService.getAllCities();
 
 		StringBuffer sb = new StringBuffer();
@@ -57,6 +57,17 @@ public class UserGui extends VerticalLayout {
 		});
 
 		taCities.setValue(sb.toString());
+	}
+	
+	private String kelvinToCelcius(String kel) {
+	
+		
+		double keldbl = Double.valueOf(kel);
+		
+		double celdbl = keldbl -272.15;
+		
+		String cel = String.valueOf(celdbl);
+		return cel;
 	}
 
 }
