@@ -53,21 +53,18 @@ public class UserGui extends VerticalLayout {
 							+ "&units=metric&appid=b6907d289e10d714a6e88b30761fae22",
 					HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
 					});
-			sb.append(cityResponse.getBody().substring(cityResponse.getBody().indexOf("\"temp\":")+7, cityResponse.getBody().indexOf("\"temp\":")+13) + "\n");
+			sb.append(x.getCityName()+" -> "+kelvinToCelcius(cityResponse.getBody().substring(cityResponse.getBody().indexOf("\"temp\":") + 7,
+					cityResponse.getBody().indexOf("\"temp\":") + 13)) + "\n");
 		});
 
 		taCities.setValue(sb.toString());
 	}
-	
+
 	private String kelvinToCelcius(String kel) {
-	
-		
+
 		double keldbl = Double.valueOf(kel);
-		
-		double celdbl = keldbl -272.15;
-		
-		String cel = String.valueOf(celdbl);
-		return cel;
+		double celdbl = keldbl - 272.15;
+		return String.valueOf(celdbl);
 	}
 
 }
