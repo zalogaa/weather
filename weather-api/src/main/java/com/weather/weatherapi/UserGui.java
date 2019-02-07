@@ -64,7 +64,7 @@ public class UserGui extends VerticalLayout {
 
 	private String kelvinToCelcius(String kel) {
 
-		return String.valueOf(Double.valueOf(kel) - 272.15);
+		return String.valueOf(Math.floor(Double.valueOf(kel) - 272.15));
 	}
 
 }
