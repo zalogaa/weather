@@ -49,8 +49,8 @@ public class UserGui extends VerticalLayout {
 
 		cities.forEach(x -> {
 			ResponseEntity<String> cityResponse = restTemplate.exchange(
-					"https://samples.openweathermap.org/data/2.5/weather?q=" + x.getCityName()
-							+ ",uk&appid=bd1a5f6d8fed8c14c5caace65591ef23",
+					"https://openweathermap.org/data/2.5/find?q=" + x.getCityName()
+							+ "&units=metric&appid=bd1a5f6d8fed8c14c5caace65591ef23",
 					HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
 					});
 			sb.append(cityResponse.getBody() + "\n");
